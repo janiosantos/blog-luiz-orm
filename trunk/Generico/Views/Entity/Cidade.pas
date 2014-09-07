@@ -18,13 +18,13 @@ type
     procedure SetUF(const Value: string);
   public
     [AttPK]
-    [AttNotNull('ID não informado.')]
+    [AttNotNull('Código da cidade')]
     property ID: Integer read FID write SetID;
-    [AttNotNull('Nome da cidade não informado.')]
+    [AttNotNull('Nome da cidade')]
     property Nome: string read FNome write SetNome;
-    [AttNotNull('UF não informado.')]
+    [AttNotNull('UF')]
     property UF: string read FUF write SetUF;
-    [AttMinValue(1,'IBGE não informado.')]
+    [AttMinValue(1,'Código IBGE')]
     property IBGE: integer read FIBGE write SetIBGE;
   end;
 
