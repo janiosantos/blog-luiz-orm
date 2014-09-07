@@ -24,7 +24,7 @@ type
     property Nome: string read FNome write SetNome;
     [AttNotNull('UF')]
     property UF: string read FUF write SetUF;
-    [AttMinValue(1,'Código IBGE')]
+    [AttNotNull('Código IBGE')]
     property IBGE: integer read FIBGE write SetIBGE;
   end;
 
