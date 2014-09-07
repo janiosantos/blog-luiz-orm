@@ -8,32 +8,32 @@ type
   [AttTabela('Cliente')]
   TCliente = class(TTabela)
   private
-    FID: string;
+    FID: Integer;
     FNOME: string;
-    FCIDADEID: string;
-    procedure SetID(const Value: string);
+    FCIDADEID: Integer;
+    procedure SetID(const Value: Integer);
     procedure SetNOME(const Value: string);
-    procedure SetCIDADEID(const Value: string);
+    procedure SetCIDADEID(const Value: Integer);
   public
     [AttPk]
-    [AttNotNull('ID não informado.')]
-    property ID : string read FID write SetID;
-    [AttNotNull('Nome do Cliente não informado.')]
+    [AttNotNull('Código do cliente')]
+    property ID : Integer read FID write SetID;
+    [AttNotNull('Nome do Cliente')]
     property NOME : string read FNOME write SetNOME;
-    [AttNotNull('Cidade não informada.')]
-    property CIDADEID: string read FCIDADEID write SetCIDADEID;
+    [AttNotNull('Código da Cidade')]
+    property CIDADEID: Integer read FCIDADEID write SetCIDADEID;
   end;
 
 implementation
 
 { TCliente }
 
-procedure TCliente.SetCIDADEID(const Value: string);
+procedure TCliente.SetCIDADEID(const Value: Integer);
 begin
   FCIDADEID := Value;
 end;
 
-procedure TCliente.SetID(const Value: string);
+procedure TCliente.SetID(const Value: Integer);
 begin
   FID := Value;
 end;

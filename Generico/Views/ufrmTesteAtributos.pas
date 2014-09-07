@@ -54,7 +54,8 @@ begin
       id := 1;
       UF := 'MA';
       Nome := 'MARANHÃO';
-      IBGE := 2107400;
+      //testando campo obrigatório não informado
+      IBGE := 0;
     end;
 
     dmPrin.Transacao.StartTransaction;

@@ -46,7 +46,7 @@ type
 
   AttNotNull = class(AttBaseValidacao)
   public
-    constructor Create(const MensagemErro: string);
+    constructor Create(const ANomeCampo: string);
     function ValidarString(Value: string): Boolean;
     function ValidarInteger(Value: Integer): Boolean;
     function ValidarFloat(Value: Double): Boolean;
@@ -57,7 +57,7 @@ type
   private
     FValorMinimo: Double;
   public
-    constructor Create(ValorMinimo: Double; const MensagemErro: string);
+    constructor Create(ValorMinimo: Double; const ANomeCampo: string);
     function Validar(Value: Double): Boolean;
   end;
 
@@ -65,7 +65,7 @@ type
   private
     FValorMaximo: Double;
   public
-    constructor Create(ValorMaximo: Double; const MensagemErro: string);
+    constructor Create(ValorMaximo: Double; const ANomeCampo: string);
     function Validar(Value: Double): Boolean;
   end;
 
@@ -278,10 +278,10 @@ end;
 
 { TValidaIntegerMinimo }
 
-constructor AttMinValue.Create(ValorMinimo: Double; const MensagemErro: string);
+constructor AttMinValue.Create(ValorMinimo: Double; const ANomeCampo: string);
 begin
   FValorMinimo := ValorMinimo;
-  FMensagemErro := MensagemErro;
+  FMensagemErro := 'Campo ' + ANomeCampo + ' com valor inválido!';
 end;
 
 function AttMinValue.Validar(Value: Double): Boolean;
@@ -289,10 +289,10 @@ begin
   Result := Value >= FValorMinimo;
 end;
 
-constructor AttMaxValue.Create(ValorMaximo: Double; const MensagemErro: string);
+constructor AttMaxValue.Create(ValorMaximo: Double; const ANomeCampo: string);
 begin
   FValorMaximo := ValorMaximo;
-  FMensagemErro := MensagemErro;
+  FMensagemErro := 'Campo ' + ANomeCampo + ' com valor inválido!';
 end;
 
 function AttMaxValue.Validar(Value: Double): Boolean;
@@ -302,9 +302,9 @@ end;
 
 { TValidaStringNaoNulo }
 
-constructor AttNotNull.Create(const MensagemErro: string);
+constructor AttNotNull.Create(const ANomeCampo: string);
 begin
-  FMensagemErro := MensagemErro;
+  FMensagemErro := 'Campo obrigatório não informado: ' + ANomeCampo ;
 end;
 
 function AttNotNull.ValidarString(Value: string): Boolean;
