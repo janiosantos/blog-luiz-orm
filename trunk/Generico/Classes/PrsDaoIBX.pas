@@ -49,8 +49,8 @@ type
     // query para execução dos comandos crud
     Qry: TIBQuery;
 
-    Function DbToTabela<T: TTabela>(ATabela: TTabela; ADataSet: TDataSet):
-      TObjectList<T>;
+    Function DbToTabela<T: TTabela>(ATabela: TTabela; ADataSet: TDataSet)
+      : TObjectList<T>;
   protected
     // métodos responsáveis por setar os parâmetros
     procedure QryParamInteger(ARecParams: TRecParams); override;
@@ -72,14 +72,19 @@ type
 
     // dataset para as consultas
     function ConsultaSql(ASql: string): TDataSet; override;
-    function ConsultaTab(ATabela: TTabela; ACampos: array of string): TDataSet; override;
-    function ConsultaGen<T: TTabela>(ATabela: TTabela; ACampos: array of string): TObjectList<T>;
+    function ConsultaTab(ATabela: TTabela; ACampos: array of string)
+      : TDataSet; override;
+    function ConsultaGen<T: TTabela>(ATabela: TTabela; ACampos: array of string)
+      : TObjectList<T>;
 
     // pega campo autoincremento
     function GetID(ATabela: TTabela; ACampo: string): Integer; override;
+    function GetMax(ATabela: TTabela; ACampo: string;
+      ACamposChave: array of string): Integer;
 
     // recordcount
-    function GetRecordCount(ATabela: TTabela; ACampos: array of string): Integer; override;
+    function GetRecordCount(ATabela: TTabela; ACampos: array of string)
+      : Integer; override;
 
     // crud
     function Inserir(ATabela: TTabela): Integer; override;
@@ -239,8 +244,10 @@ begin
   inherited;
   with ARecParams do
   begin
-    TIBQuery(Qry).ParamByName(Campo).AsDateTime := Prop.GetValue(Tabela)
-      .AsType<TDateTime>;
+    if Prop.GetValue(Tabela).AsType<TDateTime> = 0 then
+      TIBQuery(Qry).ParamByName(Campo).Clear
+    else
+      TIBQuery(Qry).ParamByName(Campo).AsDateTime := Prop.GetValue(Tabela).AsType<TDateTime>;
   end;
 end;
 
@@ -308,8 +315,8 @@ begin
   end;
 end;
 
-function TDaoIbx.DbToTabela<T>(ATabela: TTabela; ADataSet: TDataSet):
-  TObjectList<T>;
+function TDaoIbx.DbToTabela<T>(ATabela: TTabela; ADataSet: TDataSet)
+  : TObjectList<T>;
 var
   AuxValue: TValue;
   TipoRtti: TRttiType;
@@ -327,9 +334,9 @@ begin
     for PropRtti in TipoRtti.GetProperties do
     begin
       Campo := PropRtti.Name;
-      Datatype := ADataSet.FieldByName(Campo).DataType;
+      DataType := ADataSet.FieldByName(Campo).DataType;
 
-      case Datatype of
+      case DataType of
         ftInteger:
           begin
             PropRtti.SetValue(AuxValue.AsObject,
@@ -473,6 +480,53 @@ begin
   end;
 end;
 
+function TDaoIbx.GetMax(ATabela: TTabela; ACampo: string;
+  ACamposChave: array of string): Integer;
+var
+  AQry: TIBQuery;
+  Campo: string;
+  Contexto: TRttiContext;
+  TipoRtti: TRttiType;
+  PropRtti: TRttiProperty;
+  Separador: string;
+begin
+  AQry := TIBQuery.Create(Application);
+  with AQry do
+  begin
+    Database := FConexao.Database;
+    sql.Clear;
+    sql.Add('select max(' + ACampo + ') from ' + PegaNomeTab(ATabela));
+    sql.Add('Where');
+    Separador := '';
+    for Campo in ACamposChave do
+    begin
+      sql.Add(Separador + Campo + '= :' + Campo);
+      Separador := ' and ';
+    end;
+
+    Contexto := TRttiContext.Create;
+    try
+      TipoRtti := Contexto.GetType(ATabela.ClassType);
+
+      for Campo in ACamposChave do
+      begin
+        // setando os parâmetros
+        for PropRtti in TipoRtti.GetProperties do
+          if CompareText(PropRtti.Name, Campo) = 0 then
+          begin
+            ConfiguraParametro(PropRtti, Campo, ATabela, AQry);
+          end;
+      end;
+
+      Open;
+
+      Result := fields[0].AsInteger;
+    finally
+      Contexto.Free;
+    end;
+  end;
+end;
+
 function TDaoIbx.GetRecordCount(ATabela: TTabela;
   ACampos: array of string): Integer;
 var
@@ -499,7 +553,7 @@ begin
         sql.Add('where 1=1');
 
       for Campo in ACampos do
-        SQL.Add('and ' + Campo + '=:' + Campo);
+        sql.Add('and ' + Campo + '=:' + Campo);
 
       for Campo in ACampos do
       begin
