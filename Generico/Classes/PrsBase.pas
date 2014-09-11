@@ -277,8 +277,8 @@ begin
     with ASql do
     begin
       Add('Select * from ' + PegaNomeTab(ATabela));
-      Add('Where');
-      Separador := '';
+      Add('Where 1=1');
+      Separador := ' and ';
       for Campo in ACampos do
       begin
         Add(Separador + Campo + '= :' + Campo);
