@@ -352,7 +352,7 @@ begin
             PropRtti.SetValue(AuxValue.AsObject,
               TValue.FromVariant(ADataSet.FieldByName(Campo).AsFloat));
           end;
-        ftDateTime:
+        ftDate, ftDateTime:
           begin
             PropRtti.SetValue(AuxValue.AsObject,
               TValue.FromVariant(ADataSet.FieldByName(Campo).AsDateTime));
@@ -489,41 +489,48 @@ var
   TipoRtti: TRttiType;
   PropRtti: TRttiProperty;
   Separador: string;
+  NumMax: Integer;
 begin
   AQry := TIBQuery.Create(Application);
-  with AQry do
-  begin
-    Database := FConexao.Database;
-    sql.Clear;
-    sql.Add('select max(' + ACampo + ') from ' + PegaNomeTab(ATabela));
-    sql.Add('Where');
-    Separador := '';
-    for Campo in ACamposChave do
+  try
+    with AQry do
     begin
-      sql.Add(Separador + Campo + '= :' + Campo);
-      Separador := ' and ';
-    end;
-
-    Contexto := TRttiContext.Create;
-    try
-      TipoRtti := Contexto.GetType(ATabela.ClassType);
-
+      Database := FConexao.Database;
+      sql.Clear;
+      sql.Add('select max(' + ACampo + ') from ' + PegaNomeTab(ATabela));
+      sql.Add('Where');
+      Separador := '';
       for Campo in ACamposChave do
       begin
-        // setando os parâmetros
-        for PropRtti in TipoRtti.GetProperties do
-          if CompareText(PropRtti.Name, Campo) = 0 then
-          begin
-            ConfiguraParametro(PropRtti, Campo, ATabela, AQry);
-          end;
+        sql.Add(Separador + Campo + '= :' + Campo);
+        Separador := ' and ';
       end;
 
-      Open;
+      Contexto := TRttiContext.Create;
+      try
+        TipoRtti := Contexto.GetType(ATabela.ClassType);
 
-      Result := fields[0].AsInteger;
-    finally
-      Contexto.Free;
+        for Campo in ACamposChave do
+        begin
+          // setando os parâmetros
+          for PropRtti in TipoRtti.GetProperties do
+            if CompareText(PropRtti.Name, Campo) = 0 then
+            begin
+              ConfiguraParametro(PropRtti, Campo, ATabela, AQry);
+            end;
+        end;
+
+        Open;
+
+        NumMax := Fields[0].AsInteger;
+
+        Result := NumMax;
+      finally
+        Contexto.Free;
+      end;
     end;
+  finally
+    AQry.Free;
   end;
 end;
 

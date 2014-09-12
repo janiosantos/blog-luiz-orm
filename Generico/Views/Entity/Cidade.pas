@@ -12,10 +12,12 @@ type
     FUF: string;
     FID: Integer;
     FNome: string;
+    FDataCad: TDateTime;
     procedure SetIBGE(const Value: integer);
     procedure SetID(const Value: Integer);
     procedure SetNome(const Value: string);
     procedure SetUF(const Value: string);
+    procedure SetDataCad(const Value: TDateTime);
   public
     [AttPK]
     [AttNotNull('Código da cidade')]
@@ -26,11 +28,17 @@ type
     property UF: string read FUF write SetUF;
     [AttNotNull('Código IBGE')]
     property IBGE: integer read FIBGE write SetIBGE;
+    property DataCad: TDateTime read FDataCad write SetDataCad;
   end;
 
 implementation
 
 { TCidade }
+
+procedure TCidade.SetDataCad(const Value: TDateTime);
+begin
+  FDataCad := Value;
+end;
 
 procedure TCidade.SetIBGE(const Value: integer);
 begin
