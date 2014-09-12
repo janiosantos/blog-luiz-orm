@@ -280,10 +280,7 @@ begin
       Add('Where 1=1');
       Separador := ' and ';
       for Campo in ACampos do
-      begin
         Add(Separador + Campo + '= :' + Campo);
-        Separador := ' and ';
-      end;
     end;
     Result := ASql.Text;
   finally

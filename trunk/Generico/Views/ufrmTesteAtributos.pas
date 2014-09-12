@@ -128,7 +128,7 @@ begin
     Lista := dmPrin.dao.ConsultaGen<TCidade>(Objeto, ['uf']);
     try
       for I := 0 to Lista.Count - 1 do
-        Memo1.Lines.Add(Lista.Items[i].Nome)
+        Memo1.Lines.Add(Lista.Items[i].Nome + ' Data/Cad: ' + DateToStr(lista.Items[i].DataCad));
     finally
       lista.Free;
     end;

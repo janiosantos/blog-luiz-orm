@@ -13415,3 +13415,203 @@ This application has leaked memory. The small block leaks are (excluding expecte
 37 - 52 bytes: TObjectList<Cidade.TCidade> x 2
 
 Note: Memory leak detail is logged to a text file in the same folder as this application. To disable this memory leak check, undefine "EnableMemoryLeakReporting".
+
+--------------------------------2014/9/12 9:39:08--------------------------------
+A memory block has been leaked. The size is: 52
+
+This block was allocated by thread 0x11A0, and the stack trace (return addresses) at the time was:
+406922 [System][@GetMem$qqri]
+407727 [System][TObject.NewInstance$qqrv]
+407E4E [System][@ClassCreate$qqrpvzc]
+6ADF9E [PrsDaoIBX.pas][ufrmTesteAtributos][Generics.Collections.%TObjectList__1$p14Cidade.TCidade%.$bctr$qqro][379]
+40A8E7 [System][@InitializeArray$qqrpvt1ui]
+6AE665 [PrsDaoIBX.pas][ufrmTesteAtributos][TDaoIbx.%DbToTabela$%$qqrp15Prsbase.TTabelap16Data.Db.TDataSet$p62System.Generics.Collections.%TObjectList__1$p14Cidade.TCidade%][328]
+6AE271 [PrsDaoIBX.pas][ufrmTesteAtributos][TDaoIbx.%ConsultaGen$%$qqrp15Prsbase.TTabelap20System.UnicodeStringxi$p62System.Generics.Collections.%TObjectList__1$p14Cidade.TCidade%][407]
+6AA9D8 [ufrmTesteAtributos.pas][ufrmTesteAtributos][TfrmTesteAtributos.Button1Click$qqrp14System.TObject][128]
+533070 [Vcl.Controls][Controls.TControl.WndProc$qqrr24Winapi.Messages.TMessage]
+407B23 [System][@IsClass$qqrxp14System.TObjectp17System.TMetaClass]
+5335C9 [Vcl.Controls][Controls.TControl.Click$qqrv]
+
+The block is currently used for an object of class: TObjectList<Cidade.TCidade>
+
+The allocation number is: 3636
+
+Current memory dump of 256 bytes starting at pointer address 7FDB5990:
+CC C7 6A 00 00 00 00 00 00 00 00 00 E8 C4 6B 00 00 00 00 00 00 00 00 00 58 3F E7 7F 00 00 00 00
+01 00 00 00 00 00 00 00 00 00 00 00 0B 01 30 79 80 80 80 80 80 80 80 80 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Ì  Ç  j  .  .  .  .  .  .  .  .  .  è  Ä  k  .  .  .  .  .  .  .  .  .  X  ?  ç    .  .  .  .
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  0  y  €  €  €  €  €  €  €  €  .  .  .  .  .  .  .  .
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+
+--------------------------------2014/9/12 9:39:08--------------------------------
+A memory block has been leaked. The size is: 36
+
+This block was allocated by thread 0x11A0, and the stack trace (return addresses) at the time was:
+406922 [System][@GetMem$qqri]
+407727 [System][TObject.NewInstance$qqrv]
+407E4E [System][@ClassCreate$qqrpvzc]
+40781C [System][TObject.$bctr$qqrv]
+6AE680 [PrsDaoIBX.pas][ufrmTesteAtributos][TDaoIbx.%DbToTabela$%$qqrp15Prsbase.TTabelap16Data.Db.TDataSet$p62System.Generics.Collections.%TObjectList__1$p14Cidade.TCidade%][332]
+6AE271 [PrsDaoIBX.pas][ufrmTesteAtributos][TDaoIbx.%ConsultaGen$%$qqrp15Prsbase.TTabelap20System.UnicodeStringxi$p62System.Generics.Collections.%TObjectList__1$p14Cidade.TCidade%][407]
+6AA9D8 [ufrmTesteAtributos.pas][ufrmTesteAtributos][TfrmTesteAtributos.Button1Click$qqrp14System.TObject][128]
+533070 [Vcl.Controls][Controls.TControl.WndProc$qqrr24Winapi.Messages.TMessage]
+407B23 [System][@IsClass$qqrxp14System.TObjectp17System.TMetaClass]
+5335C9 [Vcl.Controls][Controls.TControl.Click$qqrv]
+54BE43 [Vcl.StdCtrls][Stdctrls.TCustomButton.Click$qqrv]
+
+The block is currently used for an object of class: TCidade
+
+The allocation number is: 3638
+
+Current memory dump of 256 bytes starting at pointer address 7FDC8CC0:
+48 9B 6A 00 00 00 00 00 9C 21 E9 7F 04 00 00 00 4C 92 DC 7F 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 55 79 7B 78 00 00 00 00 71 2F DC 7F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+20 0D 00 00 22 69 40 00 1B 94 40 00 4C 96 40 00 FC 31 43 00 BB 3A 43 00 9F EA 68 00 36 9D 64 00
+F3 78 64 00 C5 64 6A 00 98 5D 6A 00 5F CB 45 00 A0 11 00 00 A0 11 00 00 D5 94 40 00 DD A9 40 00
+25 A9 40 00 25 AA 40 00 E1 B5 40 00 85 B2 40 00 C1 B2 40 00 96 B4 40 00 D3 8F 4B 00 EE 88 4B 00
+4B 78 40 00 16 00 00 00 B0 04 02 00 9F 43 50 86 8C 62 6C 00 80 80 80 80 80 80 80 80 80 80 80 80
+80 80 80 80 80 80 60 BC AF 79 80 80 80 80 80 80 80 80 80 80 80 80 80 80 00 00 00 00 21 72 DC 7F
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 5D 0E 00 00 22 69 40 00 27 77 40 00 4E 7E 40 00
+H  ›  j  .  .  .  .  .  œ  !  é    .  .  .  .  L  ’  Ü    .  .  .  .  .  .  .  .  .  .  .  .
+.  .  .  .  U  y  {  x  .  .  .  .  q  /  Ü    .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+   .  .  .  "  i  @  .  .  ”  @  .  L  –  @  .  ü  1  C  .  »  :  C  .  Ÿ  ê  h  .  6    d  .
+ó  x  d  .  Å  d  j  .  ˜  ]  j  .  _  Ë  E  .     .  .  .     .  .  .  Õ  ”  @  .  Ý  ©  @  .
+%  ©  @  .  %  ª  @  .  á  µ  @  .  …  ²  @  .  Á  ²  @  .  –  ´  @  .  Ó    K  .  î  ˆ  K  .
+K  x  @  .  .  .  .  .  °  .  .  .  Ÿ  C  P  †  Œ  b  l  .  €  €  €  €  €  €  €  €  €  €  €  €
+€  €  €  €  €  €  `  ¼  ¯  y  €  €  €  €  €  €  €  €  €  €  €  €  €  €  .  .  .  .  !  r  Ü  
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ]  .  .  .  "  i  @  .  '  w  @  .  N  ~  @  .
+
+--------------------------------2014/9/12 9:39:08--------------------------------
+A memory block has been leaked. The size is: 36
+
+This block was allocated by thread 0x11A0, and the stack trace (return addresses) at the time was:
+406922 [System][@GetMem$qqri]
+40941B [System][@NewUnicodeString$qqri]
+40964C [System][@UStrFromPWCharLen$qqrr20System.UnicodeStringpbi]
+644C5F [IBX.IBCustomDataSet][Ibcustomdataset.TIBStringField.GetValue$qqrr20System.UnicodeString]
+644B97 [IBX.IBCustomDataSet][Ibcustomdataset.TIBStringField.GetAsString$qqrv]
+6AE789 [PrsDaoIBX.pas][ufrmTesteAtributos][TDaoIbx.%DbToTabela$%$qqrp15Prsbase.TTabelap16Data.Db.TDataSet$p62System.Generics.Collections.%TObjectList__1$p14Cidade.TCidade%][347]
+6AE271 [PrsDaoIBX.pas][ufrmTesteAtributos][TDaoIbx.%ConsultaGen$%$qqrp15Prsbase.TTabelap20System.UnicodeStringxi$p62System.Generics.Collections.%TObjectList__1$p14Cidade.TCidade%][407]
+6AA9D8 [ufrmTesteAtributos.pas][ufrmTesteAtributos][TfrmTesteAtributos.Button1Click$qqrp14System.TObject][128]
+533070 [Vcl.Controls][Controls.TControl.WndProc$qqrr24Winapi.Messages.TMessage]
+407B23 [System][@IsClass$qqrxp14System.TObjectp17System.TMetaClass]
+5335C9 [Vcl.Controls][Controls.TControl.Click$qqrv]
+
+The block is currently used for an object of class: UnicodeString
+
+The allocation number is: 3654
+
+Current memory dump of 256 bytes starting at pointer address 7FDC9240:
+B0 04 02 00 01 00 00 00 06 00 00 00 43 00 41 00 58 00 49 00 41 00 53 00 00 00 71 B3 6F 77 80 80
+80 80 80 80 80 80 80 80 00 00 00 00 41 76 DC 7F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+40 0E 00 00 22 69 40 00 27 77 40 00 4E 7E 40 00 45 D2 45 00 E3 9B 46 00 79 A3 46 00 28 94 45 00
+11 6D 45 00 30 6D 45 00 57 6D 45 00 5A 6F 45 00 A0 11 00 00 A0 11 00 00 3E 69 40 00 45 77 40 00
+99 7E 40 00 65 95 45 00 99 7E 40 00 4B 78 40 00 BA 29 47 00 1F A3 46 00 4B 78 40 00 8B 93 45 00
+32 6C 46 00 1C 00 00 00 DC 8A 44 00 80 3A F3 85 8C 62 6C 00 80 80 80 80 80 80 80 80 80 80 80 80
+80 80 80 80 80 80 80 80 80 80 80 80 7F C5 0C 7A 80 80 80 80 80 80 80 80 00 00 00 00 E1 32 DC 7F
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 61 0E 00 00 22 69 40 00 27 77 40 00 4E 7E 40 00
+°  .  .  .  .  .  .  .  .  .  .  .  C  .  A  .  X  .  I  .  A  .  S  .  .  .  q  ³  o  w  €  €
+€  €  €  €  €  €  €  €  .  .  .  .  A  v  Ü    .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+@  .  .  .  "  i  @  .  '  w  @  .  N  ~  @  .  E  Ò  E  .  ã  ›  F  .  y  £  F  .  (  ”  E  .
+.  m  E  .  0  m  E  .  W  m  E  .  Z  o  E  .     .  .  .     .  .  .  >  i  @  .  E  w  @  .
+™  ~  @  .  e  •  E  .  ™  ~  @  .  K  x  @  .  º  )  G  .  .  £  F  .  K  x  @  .  ‹  “  E  .
+2  l  F  .  .  .  .  .  Ü  Š  D  .  €  :  ó  …  Œ  b  l  .  €  €  €  €  €  €  €  €  €  €  €  €
+€  €  €  €  €  €  €  €  €  €  €  €    Å  .  z  €  €  €  €  €  €  €  €  .  .  .  .  á  2  Ü  
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  a  .  .  .  "  i  @  .  '  w  @  .  N  ~  @  .
+
+--------------------------------2014/9/12 9:39:08--------------------------------
+A memory block has been leaked. The size is: 12
+
+This block was allocated by thread 0x11A0, and the stack trace (return addresses) at the time was:
+406922 [System][@GetMem$qqri]
+407727 [System][TObject.NewInstance$qqrv]
+407E4E [System][@ClassCreate$qqrpvzc]
+40781C [System][TObject.$bctr$qqrv]
+413CC6 [FastMM4.pas][FastMM4][CalculateHeaderCheckSum$qqrp29Fastmm4.TFullDebugBlockHeader][8011]
+413CD5 [FastMM4.pas][FastMM4][UpdateHeaderAndFooterCheckSums$qqrp29Fastmm4.TFullDebugBlockHeader][8021]
+6ACE59 [System.Generics.Collections.pas][ufrmTesteAtributos][Generics.Collections.%TList__1$p14Cidade.TCidade%.$bctr$qqrx85System.%DelphiInterface$t57System.Generics.Defaults.%IComparer__1$p14Cidade.TCidade%%]
+6ACDD5 [ufrmTesteAtributos][Generics.Collections.%TList__1$p14Cidade.TCidade%.$bctr$qqrv]
+6ADFB1 [PrsDaoIBX.pas][ufrmTesteAtributos][Generics.Collections.%TObjectList__1$p14Cidade.TCidade%.$bctr$qqro][379]
+6AE665 [PrsDaoIBX.pas][ufrmTesteAtributos][TDaoIbx.%DbToTabela$%$qqrp15Prsbase.TTabelap16Data.Db.TDataSet$p62System.Generics.Collections.%TObjectList__1$p14Cidade.TCidade%][328]
+6AE271 [PrsDaoIBX.pas][ufrmTesteAtributos][TDaoIbx.%ConsultaGen$%$qqrp15Prsbase.TTabelap20System.UnicodeStringxi$p62System.Generics.Collections.%TObjectList__1$p14Cidade.TCidade%][407]
+
+The block is currently used for an object of class: TMoveArrayManager<Cidade.TCidade>
+
+The allocation number is: 3637
+
+Current memory dump of 256 bytes starting at pointer address 7FE73F58:
+24 EF 6A 00 00 00 00 00 34 C8 4F 78 80 80 80 80 00 00 00 00 B9 4A E7 7F 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 EE 0A 00 00 91 69 40 00 65 B3 40 00 9C D6 46 00 96 B4 40 00 65 E5 46 00
+30 79 45 00 73 91 45 00 92 95 45 00 90 BE 45 00 CC B1 63 00 B6 A2 63 00 A0 11 00 00 A0 11 00 00
+3E 69 40 00 EA B5 40 00 46 AA 40 00 25 A9 40 00 C3 78 40 00 3E 77 40 00 99 7E 40 00 3E 78 40 00
+B9 CD 40 00 AB CC 40 00 35 AA 40 00 0C 00 00 00 00 00 00 00 82 4C DB 85 8C 62 6C 00 80 80 80 80
+80 80 80 80 7D B3 24 7A 00 00 00 00 11 3D E7 7F 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+CA 09 00 00 91 69 40 00 65 B3 40 00 96 B4 40 00 D5 A7 45 00 28 94 45 00 78 94 45 00 69 B0 45 00
+28 94 45 00 42 C4 45 00 E5 C5 45 00 FB C2 45 00 A0 11 00 00 A0 11 00 00 3E 69 40 00 EA B5 40 00
+$  ï  j  .  .  .  .  .  4  È  O  x  €  €  €  €  .  .  .  .  ¹  J  ç    .  .  .  .  .  .  .  .
+.  .  .  .  .  .  .  .  î  .  .  .  ‘  i  @  .  e  ³  @  .  œ  Ö  F  .  –  ´  @  .  e  å  F  .
+0  y  E  .  s  ‘  E  .  ’  •  E  .    ¾  E  .  Ì  ±  c  .  ¶  ¢  c  .     .  .  .     .  .  .
+>  i  @  .  ê  µ  @  .  F  ª  @  .  %  ©  @  .  Ã  x  @  .  >  w  @  .  ™  ~  @  .  >  x  @  .
+¹  Í  @  .  «  Ì  @  .  5  ª  @  .  .  .  .  .  .  .  .  .  ‚  L  Û  …  Œ  b  l  .  €  €  €  €
+€  €  €  €  }  ³  $  z  .  .  .  .  .  =  ç    .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+Ê  .  .  .  ‘  i  @  .  e  ³  @  .  –  ´  @  .  Õ  §  E  .  (  ”  E  .  x  ”  E  .  i  °  E  .
+(  ”  E  .  B  Ä  E  .  å  Å  E  .  û  Â  E  .     .  .  .     .  .  .  >  i  @  .  ê  µ  @  .
+
+--------------------------------2014/9/12 9:39:08--------------------------------
+A memory block has been leaked. The size is: 20
+
+This block was allocated by thread 0x11A0, and the stack trace (return addresses) at the time was:
+406922 [System][@GetMem$qqri]
+40941B [System][@NewUnicodeString$qqri]
+40964C [System][@UStrFromPWCharLen$qqrr20System.UnicodeStringpbi]
+644C5F [IBX.IBCustomDataSet][Ibcustomdataset.TIBStringField.GetValue$qqrr20System.UnicodeString]
+644B97 [IBX.IBCustomDataSet][Ibcustomdataset.TIBStringField.GetAsString$qqrv]
+6AE789 [PrsDaoIBX.pas][ufrmTesteAtributos][TDaoIbx.%DbToTabela$%$qqrp15Prsbase.TTabelap16Data.Db.TDataSet$p62System.Generics.Collections.%TObjectList__1$p14Cidade.TCidade%][347]
+6AE271 [PrsDaoIBX.pas][ufrmTesteAtributos][TDaoIbx.%ConsultaGen$%$qqrp15Prsbase.TTabelap20System.UnicodeStringxi$p62System.Generics.Collections.%TObjectList__1$p14Cidade.TCidade%][407]
+6AA9D8 [ufrmTesteAtributos.pas][ufrmTesteAtributos][TfrmTesteAtributos.Button1Click$qqrp14System.TObject][128]
+533070 [Vcl.Controls][Controls.TControl.WndProc$qqrr24Winapi.Messages.TMessage]
+407B23 [System][@IsClass$qqrxp14System.TObjectp17System.TMetaClass]
+5335C9 [Vcl.Controls][Controls.TControl.Click$qqrv]
+
+The block is currently used for an object of class: UnicodeString
+
+The allocation number is: 3664
+
+Current memory dump of 256 bytes starting at pointer address 7FE92190:
+B0 04 02 00 01 00 00 00 02 00 00 00 4D 00 41 00 00 00 7C 53 C4 77 80 80 00 00 00 00 01 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 54 0E 00 00 91 69 40 00 65 B3 40 00 96 B4 40 00
+AB 4F 46 00 BC CC 40 00 4C CF 45 00 D4 CB 45 00 C5 E7 6A 00 71 E2 6A 00 D8 A9 6A 00 70 30 53 00
+A0 11 00 00 A0 11 00 00 3E 69 40 00 EA B5 40 00 30 52 46 00 4C CF 45 00 D4 CB 45 00 C5 E7 6A 00
+71 E2 6A 00 D8 A9 6A 00 70 30 53 00 23 7B 40 00 C9 35 53 00 14 00 00 00 00 00 00 00 CB E2 CB 86
+8C 62 6C 00 80 80 80 80 80 80 80 80 80 80 80 80 80 80 80 80 34 1D 34 79 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+°  .  .  .  .  .  .  .  .  .  .  .  M  .  A  .  .  .  |  S  Ä  w  €  €  .  .  .  .  .  .  .  .
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  T  .  .  .  ‘  i  @  .  e  ³  @  .  –  ´  @  .
+«  O  F  .  ¼  Ì  @  .  L  Ï  E  .  Ô  Ë  E  .  Å  ç  j  .  q  â  j  .  Ø  ©  j  .  p  0  S  .
+   .  .  .     .  .  .  >  i  @  .  ê  µ  @  .  0  R  F  .  L  Ï  E  .  Ô  Ë  E  .  Å  ç  j  .
+q  â  j  .  Ø  ©  j  .  p  0  S  .  #  {  @  .  É  5  S  .  .  .  .  .  .  .  .  .  Ë  â  Ë  †
+Œ  b  l  .  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  4  .  4  y  .  .  .  .  .  .  .  .
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .
+
+--------------------------------2014/9/12 9:39:08--------------------------------
+This application has leaked memory. The small block leaks are (excluding expected leaks registered by pointer):
+
+5 - 12 bytes: TMoveArrayManager<Cidade.TCidade> x 1
+13 - 20 bytes: UnicodeString x 1
+21 - 36 bytes: TCidade x 1, UnicodeString x 1
+37 - 52 bytes: TObjectList<Cidade.TCidade> x 1
+
+Note: Memory leak detail is logged to a text file in the same folder as this application. To disable this memory leak check, undefine "EnableMemoryLeakReporting".
